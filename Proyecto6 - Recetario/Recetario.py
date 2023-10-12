@@ -139,11 +139,13 @@ def eliminiar_categoria():
     system("cls")
     ruta = Path(rutas, categoria)
     for archivo in ruta.iterdir():
-        if archivo.is_file():
-            print(f"ERROR! No se puede eliminar la categoria porque existen recetas activas.")
+        try:
+            if archivo.is_file():
+                print(f"ERROR! No se puede eliminar la categoria porque existen recetas activas.")
             break
-    ruta.rmdir()
-    print(f"La categoria {categoria} ha sido eliminada con exito")
+        except:
+            ruta.rmdir()
+            print(f"La categoria {categoria} ha sido eliminada con exito")
 
 
 bienvenida()
