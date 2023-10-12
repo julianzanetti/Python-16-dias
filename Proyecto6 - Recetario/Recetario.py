@@ -7,7 +7,9 @@ rutas = Path("Recetas")
 
 def bienvenida():
     c = 0
-    print("!Bienvenido al Recetario!")
+    print("*" * 50)
+    print("!Bienvenido al Recetario!".center(50, " "))
+    print("*" * 50)
     print(f"La ruta de acceso al directorio donde se encuentra las Recetas es la siguiente: {Path.home() / rutas}")
     for txt in rutas.glob("**/*.txt"):
         c += 1
@@ -142,10 +144,16 @@ def eliminiar_categoria():
         try:
             if archivo.is_file():
                 print(f"ERROR! No se puede eliminar la categoria porque existen recetas activas.")
-            break
-        except:
+                break
+        except Exception as e:
+            print(f"ERROR al verificar archivo {e}")
+    else:
+        try:
             ruta.rmdir()
             print(f"La categoria {categoria} ha sido eliminada con exito")
+        except ValueError as e:
+            print(e)
+            print(f"ERROR al eliminar la categoria")
 
 
 bienvenida()
