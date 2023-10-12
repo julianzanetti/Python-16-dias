@@ -4,6 +4,7 @@ from os import system
 opcion = 0
 rutas = Path("Recetas")
 
+
 def bienvenida():
     c = 0
     print("!Bienvenido al Recetario!")
@@ -12,8 +13,9 @@ def bienvenida():
         c += 1
     print(f"En total tienes {c} recetas")
 
+
 def menu():
-    print(f"Recetario".center(50, "-"))
+    print(f"Recetario".center(50, "*"))
     print("1- Leer Receta")
     print("2- Crear Receta")
     print("3- Crear Categoria")
@@ -32,6 +34,7 @@ def menu():
         except ValueError as e:
             print(e)
             print(f"ERROR! No esta permitido caracteres")
+
 
 def categorias():
     c = 0
@@ -59,6 +62,7 @@ def categorias():
             print(e)
             print(f"ERROR! No esta permitido caracteres")
 
+
 def leer_receta():
     c = 0
     categoria = categorias()
@@ -76,9 +80,12 @@ def leer_receta():
             c += 1
             if archivo.is_file and receta == c:
                 contenido = open(archivo, "r")
+                print("-#" * 50)
                 print(contenido.read())
+                print("-#" * 50)
                 contenido.close()
         break
+
 
 def crear_receta():
     categoria = categorias()
@@ -93,6 +100,7 @@ def crear_receta():
         print(f"Se ha creado y guardado el archivo {nom_receta} en el directorio {ruta}")
         archivo.close()
         break
+
 
 def eliminar_receta():
     c = 0
@@ -114,6 +122,7 @@ def eliminar_receta():
                 print(f"La receta {archivo.stem} ha sido eliminada")
         break
 
+
 def crear_categoria():
     nom_categoria = input("Ingrese el nombre de la Categoria: ")
     ruta_categoria = Path(rutas, nom_categoria)
@@ -123,6 +132,7 @@ def crear_categoria():
     else:
         ruta_categoria.mkdir(parents=True)
         print(f"La categoria {nom_categoria} fue creada con exito en la ruta {ruta_categoria}")
+
 
 def eliminiar_categoria():
     categoria = categorias()
