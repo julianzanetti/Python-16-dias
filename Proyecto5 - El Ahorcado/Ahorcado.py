@@ -20,7 +20,7 @@ def ingreso_letra():
             return letra
 
 def chequear_letra(letra):
-    if letra in palabras:
+    if letra in palabras[1:]:
         print("")
         print("-"*50)
         print(f"Muy bien! Ingresaste una letra correcta.")
