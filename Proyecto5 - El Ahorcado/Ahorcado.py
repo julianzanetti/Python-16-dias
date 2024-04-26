@@ -25,12 +25,14 @@ def chequear_letra(letra):
         print("-"*50)
         print(f"Muy bien! Ingresaste una letra correcta.")
         letras_correctas.append(letra)
+        print(f"Hasta el momento ingresaste incorrectamente estas letras: {letras_incorrectas}")
         return True
     else:
         print("")
         print("-"*50)
         print(f"Ups! Ingresaste una letra incorrecta")
         letras_incorrectas.append(letra)
+        print(f"Hasta el momento ingresaste incorrectamente estas letras: {letras_incorrectas}")
         return False
 
 def validacion():
