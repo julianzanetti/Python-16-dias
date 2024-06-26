@@ -1,2 +1,2 @@
-# Python-16-dias
-Curso de Udemy llamado "Python TOTAL - Programador Avanzado en 16 días", en el cual cada dia se realizo un pequeño proyecto con lo aprendido.
+# Python TOTAL - Programador Avanzado en 16 días
+Curso de Udemy con un total de 31 horas, en el cual cada seccion se realizo un pequeño proyecto con lo aprendido.
