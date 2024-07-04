@@ -41,6 +41,7 @@ def menu():
 
 
 def categoria():
+    os.system("cls " if os.name == "nt" else "clear")
     while True:
         c = 0
         for dir in os.listdir(ruta_principal):
@@ -54,6 +55,7 @@ def categoria():
             elif cat < 1:
                 print(f"ERROR! Ingresaste un numero menor a 1.")
             elif cat == c+1:
+                os.system("cls " if os.name == "nt" else "clear")
                 return None
             else:
                 carpeta = 0
@@ -71,7 +73,7 @@ def leer_receta():
     ruta_categoria = categoria()
     if not ruta_categoria:
         return
-
+    os.system("cls " if os.name == "nt" else "clear")
     while True:
         c = 0
         for txt in Path(ruta_categoria).glob("*.txt"):
@@ -85,6 +87,7 @@ def leer_receta():
                 contador_recetas += 1
                 if archivo.is_file() and contador_recetas == nro_receta:
                     contenido = open(archivo, "r")
+                    os.system("cls " if os.name == "nt" else "clear")
                     print(contenido.read())
                     contenido.close()
             break
@@ -98,6 +101,7 @@ def crear_receta():
     if not ruta_categoria:
         return
 
+    os.system("cls " if os.name == "nt" else "clear")
     nom_receta = input("Escribe el nombre de la receta: ")
     ruta_receta = Path(ruta_categoria, f"{nom_receta}.txt")
     receta = input("Escribe la receta: ")
@@ -108,12 +112,13 @@ def crear_receta():
 
 
 def crear_categoria():
+    os.system("cls " if os.name == "nt" else "clear")
     c = 0
-    for dir in os.listdir(ruta_principal):
-        c += 1
-        print(f"{c}- {dir}")
-    print("")
     while True:
+        for dir in os.listdir(ruta_principal):
+            c += 1
+            print(f"{c}- {dir}")
+        print("")
         nueva_cat = input("Ingrese la nueva Categoria: ")
         ruta_cat = Path(ruta_principal, nueva_cat)
         if not ruta_cat.exists():
@@ -151,35 +156,16 @@ def eliminar_receta():
 
 
 def eliminar_categoria():
-    c = 0
-    for dir in os.listdir(ruta_principal):
-        c += 1
-        print(f"{c}- {dir}")
-    print(f"{c + 1}- Volver al menu de inicio")
-    while True:
-        try:
-            cat_eliminar = int(input("Ingrese la categoria a eliminar: "))
-            if cat_eliminar > c + 1:
-                print(f"ERROR! Ingresaste un numero mayor a {c + 1}")
-            elif cat_eliminar < 1:
-                print(f"ERROR! Ingresaste un numero menor a 1.")
-            elif cat_eliminar == c+1:
-                return None
-            else:
-                carpeta = 0
-                for dir in os.listdir(ruta_principal):
-                    carpeta += 1
-                    if cat_eliminar == carpeta:
-                        ruta_categoria = Path(ruta_principal, dir)
-                        if not any(ruta_categoria.iterdir()):
-                            ruta_categoria.rmdir()
-                            print(f"Categoria {dir} eliminada con exito!")
-                        else:
-                            print(f"ERROR! La categoria {dir} contiene recetas dentro.")
-                            print(f"Primero elimine las recetas y luego elimine la categoria")
-                break
-        except ValueError:
-            print("ERROR! No esta permitidos caracteres")
+    ruta_categoria = categoria()
+    if not ruta_categoria:
+        return
+
+    if not any(ruta_categoria.iterdir()):
+        ruta_categoria.rmdir()
+        print(f"Categoria {ruta_categoria} eliminada con exito!")
+    else:
+        print(f"ERROR! La categoria {ruta_categoria} contiene recetas dentro.")
+        print(f"Primero elimine las recetas y luego elimine la categoria")
 
 
 bienvenida()
