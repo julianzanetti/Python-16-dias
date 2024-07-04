@@ -79,7 +79,9 @@ def leer_receta():
         for txt in Path(ruta_categoria).glob("*.txt"):
             c += 1
             print(f"{c}- {txt.stem}")
-
+        if c == 0:
+            print(f"ERROR! Esta categoria no contiene recetas a consultar!")
+            return
         nro_receta = int(input("Elige una receta a consultar: "))
         if 1 <= nro_receta <= c + 1:
             contador_recetas = 0
