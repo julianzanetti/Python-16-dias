@@ -1,22 +1,26 @@
-def numeros_perfumeria():
-    for n in range(1, 10000):
-        yield f"P - {n}"
+def turno_perfumeria():
+    for x in range(1, 10000):
+        yield f"P - {x}"
 
-def numeros_farmacia():
-    for n in range(1, 10000):
-        yield f"F - {n}"
 
-def numeros_cosmetica():
-    for n in range(1, 10000):
-        yield f"C - {n}"
+def turno_farmacia():
+    for x in range(1, 10000):
+        yield f"F - {x}"
 
-p = numeros_perfumeria()
-f = numeros_farmacia()
-c = numeros_cosmetica()
+
+def turno_cosmetico():
+    for x in range(1, 10000):
+        yield f"C - {x}"
+
+
+p = turno_perfumeria()
+f = turno_farmacia()
+c = turno_cosmetico()
+
 
 def decorador(rubro):
-    print("\n" + "*" * 23)
-    print("Su numero es: ")
+    print("-" * 25)
+    print("Su numero de turno es:")
     if rubro == "P":
         print(next(p))
     elif rubro == "F":
@@ -24,4 +28,5 @@ def decorador(rubro):
     else:
         print(next(c))
     print("Aguarde y sera atendido")
-    print("*" * 23 + "\n")
+    print("-" * 25)
+    print("\n")
