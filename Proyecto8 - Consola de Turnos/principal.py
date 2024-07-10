@@ -1,42 +1,53 @@
+import os
 import numeros
-opcion = 0
+
+inicio = None
+
+def bienvenida():
+    print("="*50)
+    print("Bienvenido a la farmacia PYTHON".center(50))
+    print("=" * 50)
+
 
 def menu():
-    print("*" * 50)
-    print(f"Bienvenido a Farmacia Python".center(50, " "))
-    print("*" * 50)
-    print(f"Estas son nuestras Areas:")
-    print("   1- Perfumeria.")
-    print("   2- Farmacia.")
-    print("   3- Cosmeticos.")
+    letras = ["P", "C", "F", "S"]
     while True:
-        try:
-            opc = int(input("A que Area desea dirigirse (1-3): "))
-            if opc > 3:
-                print(f"ERROR! Ingresaste un numero mayor a 4.")
-            elif opc < 1:
-                print(f"ERROR! Ingresaste un numero menor a 1.")
-            else:
-                return opc
-        except ValueError as e:
-            print(e)
-            print(f"ERROR! No esta permitido caracteres")
+        print("(P) - Perfumeria")
+        print("(F) - Farmacia")
+        print("(C) - Cosmetico")
+        print("(S) - Salir")
+        opcion = input("Ingrese una opcion: ").upper()
+        if opcion in letras:
+            return opcion
+        else:
+            print("ERROR! Solamente esta permitido la (P), (F) o (C)")
 
 
-while True:
-    opcion = menu()
-    if opcion == 1:
+def otro_turno():
+    while True:
+        opcion = input("Desea sacar otro turno (S)(N): ").upper()
+        if not opcion in ["S", "N"]:
+            print("ERROR! Solamente esta permitido la (S) o (N)")
+        elif opcion == "N":
+            return "S"
+        else:
+            os.system("cls")
+            return None
+
+
+while inicio != "S":
+    bienvenida()
+    inicio = menu()
+    os.system("cls")
+    if inicio == "P":
         numeros.decorador("P")
-    elif opcion == 2:
+        inicio = otro_turno()
+    elif inicio == "F":
         numeros.decorador("F")
-    elif opcion == 3:
+        inicio = otro_turno()
+    elif inicio == "C":
         numeros.decorador("C")
-    try:
-        otro_turno = input("Desea sacar otro turno? [S] [N]: ").upper()
-        ["S", "N"].index(otro_turno)
-    except ValueError:
-        print("Esa no es una opcion valida")
-    else:
-        if otro_turno == "N":
-            print("Gracias por su visita")
-            break
+        inicio = otro_turno()
+else:
+    os.system("cls")
+    print("Gracias por utilizar el banco PYTHON!")
