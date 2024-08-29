@@ -193,8 +193,25 @@ for boton in botones:
     columnas +=1
 
 # Recibo
-texto_recibo = Text(panel_recibo, font=('Dosis', 12, 'bold'), bd=1, width=42, height=10)
+texto_recibo = Text(panel_recibo, font=('Dosis', 12, 'bold'), bd=1, width=51, height=10)
 texto_recibo.grid(row=0, column=0)
+
+# Calculadora
+visor_calculadora = Entry(panel_calculadora, font=('Dosis', 16, 'bold'), width=38, bd=1)
+visor_calculadora.grid(row=0, column=0, columnspan=4)
+
+botones_calculadora = ['7', '8', '9', '+', '4', '5', '6', '-', '1', '2', '3', '*', '=', 'Borrar', '0', '/']
+fila = 1
+columna = 0
+for boton in botones_calculadora:
+    boton = Button(panel_calculadora, text=boton.title(), font=('Dosis', 16, 'bold'), fg='white', bg='azure4', bd=1, width=8)
+    boton.grid(row=fila, column=columna)
+    if columna == 3:
+        fila+=1
+
+    columna +=1
+    if columna == 4:
+        columna=0
 
 
 # Evitar que la pantalla se cierre
