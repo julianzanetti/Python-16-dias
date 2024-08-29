@@ -183,5 +183,19 @@ etiqueta_total.grid(row=2, column=2)
 texto_total = Entry(panel_costo, font=('Dosis', 12, 'bold'), bd=1, width=10, state='readonly', textvariable=var_total)
 texto_total.grid(row=2, column=3, padx=41)
 
+
+# Botones
+botones = ['total', 'recibo', 'guardar', 'imprimir']
+columnas = 0
+for boton in botones:
+    boton = Button(panel_botones, text=boton.title(), font=('Dosis', 14, 'bold'), fg='white', bg='azure4', bd=1, width=9)
+    boton.grid(row=0, column = columnas)
+    columnas +=1
+
+# Recibo
+texto_recibo = Text(panel_recibo, font=('Dosis', 12, 'bold'), bd=1, width=42, height=10)
+texto_recibo.grid(row=0, column=0)
+
+
 # Evitar que la pantalla se cierre
 aplicacion.mainloop()
