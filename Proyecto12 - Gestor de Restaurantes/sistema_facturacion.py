@@ -145,6 +145,38 @@ def guardar():
     messagebox.showinfo('Informacion', 'Su recibo ha sido guardado')
 
 
+def resetear():
+    texto_recibo.delete(0.1, END)
+
+    for texto in texto_comida:
+        texto.set('0')
+    for texto in texto_bebidas:
+        texto.set('0')
+    for texto in texto_postres:
+        texto.set('0')
+
+    for cuadro in cuadros_comida:
+        cuadro.config(state=DISABLED)
+    for cuadro in cuadros_bebidas:
+        cuadro.config(state=DISABLED)
+    for cuadro in cuadros_postres:
+        cuadro.config(state=DISABLED)
+
+    for v in variables_comida:
+        v.set(0)
+    for v in variables_bebidas:
+        v.set(0)
+    for v in variables_postres:
+        v.set(0)
+
+    var_costo_comida.set('')
+    var_costo_bebida.set('')
+    var_costo_postre.set('')
+    var_subtotal.set('')
+    var_impuestos.set('')
+    var_total.set('')
+
+
 # Iniciar tkinter
 aplicacion = Tk()
 
@@ -330,7 +362,7 @@ texto_total.grid(row=2, column=3, padx=41)
 
 
 # Botones
-botones = ['total', 'recibo', 'guardar', 'imprimir']
+botones = ['total', 'recibo', 'guardar', 'resetear']
 botones_creados = []
 columnas = 0
 for boton in botones:
@@ -342,6 +374,7 @@ for boton in botones:
 botones_creados[0].config(command=total)
 botones_creados[1].config(command=recibo)
 botones_creados[2].config(command=guardar)
+botones_creados[3].config(command=resetear)
 
 # Recibo
 texto_recibo = Text(panel_recibo, font=('Dosis', 12, 'bold'), bd=1, width=51, height=10)
