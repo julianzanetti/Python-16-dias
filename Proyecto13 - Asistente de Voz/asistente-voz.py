@@ -7,6 +7,7 @@ import webbrowser
 import wikipedia
 import datetime
 
+# Escuchar el audio y devolverlo en texto
 def transformar_texto_audio():
 
     # Almacenar recognizer en variable
@@ -59,4 +60,13 @@ def transformar_texto_audio():
             return "Sigo esperando."
 
 
-transformar_texto_audio()
+# Funcion para que el asistente pueda ser escuchado
+def hablar(mensaje):
+    # Encender pyttsx3
+    engine = pyttsx3.init()
+
+    # Pronunciar mensaje
+    engine.say(mensaje)
+    engine.runAndWait()
+
+hablar("Hola Garita te amo")
