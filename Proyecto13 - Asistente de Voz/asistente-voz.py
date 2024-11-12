@@ -69,4 +69,28 @@ def hablar(mensaje):
     engine.say(mensaje)
     engine.runAndWait()
 
-hablar("Hola Garita te amo")
+
+# Informar el dia de la semana
+def pedir_dia():
+
+    # Crear variable con el dia de hoy
+    dia = datetime.date.today()
+    print(dia)
+
+    # crear variable para el dia de la semana
+    dia_semana = dia.weekday()
+    print(dia_semana)
+
+    # Diccionario con los nombres de los dias
+    calendario = {0: "Lunes",
+                  1: "Mares",
+                  2: "Miercoles",
+                  3: "Jueves",
+                  4: "Viernes",
+                  5: "Sabado",
+                  6: "Domingo"}
+
+    # Decir el dia de la semana
+    hablar(f"Hoy es {calendario[dia_semana]}")
+
+pedir_dia()
