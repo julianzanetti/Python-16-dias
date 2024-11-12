@@ -8,7 +8,7 @@ import wikipedia
 import datetime
 
 # Escuchar el audio y devolverlo en texto
-def transformar_texto_audio():
+def transformar_audio_texto():
 
     # Almacenar recognizer en variable
     r = sr.Recognizer()
@@ -120,4 +120,33 @@ def saludo_inicial():
     hablar(f"{momento}, soy Florencia, tu asistente personal. Por favor, dime en que te puedo ayudar")
 
 
-saludo_inicial()
+def pedir_cosas():
+
+    #Activar saludo inicial
+    saludo_inicial()
+
+    # Variable de corte
+    comenzar = True
+
+    #loop central
+    while comenzar:
+        #Activar el micro y guardar el pedido en un string
+        pedido = transformar_audio_texto().lower()
+
+        if "abrir youtube" in pedido:
+            hablar(f"Con gusto, estoy abriendo YouTube")
+            webbrowser.open("https://www.youtube.com")
+
+        elif "abrir el navegador" in pedido:
+            hablar("Claro, estoy en eso")
+            webbrowser.open("https://www.google.com")
+
+        elif "qué día es hoy" in pedido:
+            pedir_dia()
+            continue
+
+        elif "qué hora es" in pedido:
+            pedir_hora()
+            continue
+
+pedir_cosas()
