@@ -105,4 +105,19 @@ def pedir_hora():
     hablar(f"En este momento son las {hora.hour} horas con {hora.minute} minutos y {hora.second} segundos")
 
 
-pedir_hora()
+def saludo_inicial():
+
+    # Variable para la hora
+    hora = datetime.datetime.now()
+    if hora.hour < 6 or hora.hour > 20:
+        momento = "Buenas noches"
+    elif 6 <= hora.hour < 13:
+        momento = "Buenos dias"
+    else:
+        momento = "Buenas tardes"
+
+    # Decir el saludo
+    hablar(f"{momento}, soy Florencia, tu asistente personal. Por favor, dime en que te puedo ayudar")
+
+
+saludo_inicial()
