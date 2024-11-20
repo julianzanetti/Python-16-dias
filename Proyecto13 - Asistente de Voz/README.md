@@ -1,5 +1,5 @@
 # Asistente de Voz.
-## Instalar las siguientes librerias:
+## Librerias instaladas:
 - pyttsx3
 - speech_recognition
 - pywhatkit
