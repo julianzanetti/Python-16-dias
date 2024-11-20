@@ -158,5 +158,40 @@ def pedir_cosas():
             hablar(resultado)
             continue
 
+        elif "busca en internet" in pedido:
+            hablar("Ya mismo estoy en eso")
+            pedido = pedido.replace("busca en internet", "")
+            pywhatkit.search(pedido)
+            hablar("Esto es lo que he encontrado")
+            continue
+
+        elif "reproducir" in pedido:
+            hablar("Buena idea, ya comienzo a reproducirlo")
+            pywhatkit.playonyt(pedido)
+            continue
+
+        elif "chiste" in pedido:
+            hablar(pyjokes.get_joke("es"))
+            continue
+
+        elif "precio de las acciones" in pedido:
+            accion = pedido.split("de")[-1].strip
+            cartera = {"Apple":"APPL",
+                       "Amazon":"AMZN",
+                       "Google":"GOOGL"}
+            try:
+                accion_buscada = cartera[accion]
+                accion_buscada = yfinance.Ticker(accion_buscada)
+                precio_actual = accion_buscada.info["regularMarketPrice"]
+                hablar(f"La encontré, el precio de {accion} es {precio_actual}")
+                continue
+            except:
+                hablar("Perdon pero no la he encontrado")
+                continue
+
+        elif "adiós" in pedido:
+            hablar("Me voy a descansar, cualquier cosa me avisas")
+            break
+
 
 pedir_cosas()
