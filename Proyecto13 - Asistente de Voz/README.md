@@ -8,5 +8,3 @@
 - webbrowser
 - datetime
 - wikipedia
-
-## Imagen final del proyecto:
