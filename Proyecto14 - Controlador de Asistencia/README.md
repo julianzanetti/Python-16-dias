@@ -12,6 +12,6 @@
   - opencv-python
 
 ## Imagenes de ejemplo a utilizar.
-- Se encuentran detro de la carpeta proyecto14.
+- Se encuentran detro de la carpeta proyecto14/Empleados.
 
 ## Proyecto Final.
