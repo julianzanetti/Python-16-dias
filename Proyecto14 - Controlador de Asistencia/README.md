@@ -10,3 +10,5 @@
   -  face-recognition
   -  numpy
   - opencv-python
+
+## Proyecto Final.
