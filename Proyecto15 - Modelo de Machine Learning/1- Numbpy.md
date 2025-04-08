@@ -93,3 +93,6 @@ array4 = np.random.randint(0,10,(3,5))
 array4
 ```
 ![image](https://github.com/user-attachments/assets/ea02d87c-fe72-4ff4-8f40-0c56023cdfb2)
+
+## ¿Qué ocurre al correr la última celda nuevamente, a diferencia de las anteriores?
+- ### Encontramos los valores únicos del array_4
