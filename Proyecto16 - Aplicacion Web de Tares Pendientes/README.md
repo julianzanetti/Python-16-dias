@@ -1,4 +1,5 @@
 # Aplicacion Web de Tareas Pendientes
+## Paso1: Instalar y configurar Django.
 Instalar Django.
 ```
 pip install django
