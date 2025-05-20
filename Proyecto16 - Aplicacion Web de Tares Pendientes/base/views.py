@@ -9,4 +9,4 @@ class ListaPendientes(ListView):
 
 class DetalleTarea(DetailView):
     model = Tarea
-    context_object_name = 'tarea.detalle'
+    context_object_name = 'tarea_detalle'
