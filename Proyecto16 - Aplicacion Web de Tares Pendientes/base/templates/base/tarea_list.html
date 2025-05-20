@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Tareas</title>
+</head>
+<body>
+    <h1>Listado de Tareas Pendientes</h1>
+    <table>
+        <tr>
+            <th>Elementos</th>
+        </tr>
+
+        {% for tarea in tareas %}
+
+        <tr>
+            <th>{{tarea.titulo}}</th>
+        </tr>
+        {% empty %}
+            <h3>No hay elementos en esta Lista</h3>
+        {% endfor %}
+    </table>
+</body>
+</html>
