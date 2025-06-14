@@ -5,12 +5,15 @@
     <title>Title</title>
 </head>
 <body>
+    {% extends 'base/principal.html' %}
+    {% block content %}
     <a href="{% url 'pendientes' %}">Volver</a>
     <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <p>Vas a eliminar esta Tarea: {{ tarea }}</p>
         <input type="submit" value="Eliminar">
-    </form>
+    </form>        
+    {% endblock content %}
 </body>
 </html>

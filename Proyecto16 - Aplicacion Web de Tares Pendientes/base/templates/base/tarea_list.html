@@ -5,6 +5,8 @@
     <title>Listado de Tareas</title>
 </head>
 <body>
+    {% extends 'base/principal.html' %}
+    {% block content %}
     {% if request.user.is_authenticated %}
         <p>{{request.user}}</p>
         <form method="post" action="{% url 'logout' %}">
@@ -34,7 +36,6 @@
 
         <tr>
             <td>{{tarea.titulo}}</td>
-            <td><a href="{% url 'detalle-tarea' tarea.id %}">Ver</a></td>
             <td><a href="{% url 'editar-tarea' tarea.id %}">Editar</a></td>
             <td><a href="{% url 'eliminar-tarea' tarea.id %}">Eliminar</a></td>
         </tr>
@@ -42,5 +43,6 @@
             <h3>No hay elementos en esta Lista</h3>
         {% endfor %}
     </table>
+    {% endblock content %}
 </body>
 </html>
