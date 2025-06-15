@@ -7,13 +7,15 @@
 <body>
     {% extends 'base/principal.html' %}
     {% block content %}
+    <div class="cuerpo-tarjeta">
     <h1>Formulario de Tareas</h1>
-    <a href="{% url 'pendientes' %}">Volver</a>
     <form method="post" action="">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Enviar">
-    </form>        
+        <a class="volver" href="{% url 'pendientes' %}">Volver</a>
+    </form>
+    </div>        
     {% endblock content %}
 </body>
-</html>
+</html> 
